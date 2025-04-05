@@ -119,11 +119,13 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-[#E9552E] text-white px-6 py-3 rounded-md hover:bg-[#cf482a] transition-colors flex items-center justify-center gap-2"
+                disabled
+                className="w-full bg-[#E9552E] text-white px-6 py-3 rounded-md opacity-50 cursor-not-allowed flex items-center justify-center gap-2"
               >
                 Send Message
                 <Send size={16} />
               </button>
+
             </form>
           </div>
         </div>
