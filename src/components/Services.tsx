@@ -1,4 +1,5 @@
 import { Code2, Globe, Cloud, Database, Briefcase } from 'lucide-react';
+import AnimatedSection from './AnimatedSection'; // Make sure this path is correct
 
 interface Service {
   icon: JSX.Element;
@@ -37,23 +38,27 @@ const services: Service[] = [
 const Services = () => {
   return (
     <section id="services" className="services-section py-16 md:py-20 px-4 md:px-[10%]">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">Services</h2>
+      <AnimatedSection>
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">
+          Services
+        </h2>
+      </AnimatedSection>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {services.map((service, index) => (
-          <div 
-            key={index}
-            className="bg-[#1b1f27] rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:translateY(-5px)"
-          >
-            <div className="mb-4 p-3 bg-[#252a34] rounded-lg inline-block">
-              {service.icon}
+          <AnimatedSection key={index}>
+            <div className="bg-[#1b1f27] rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px]">
+              <div className="mb-4 p-3 bg-[#252a34] rounded-lg inline-block">
+                {service.icon}
+              </div>
+              <h3 className="text-xl md:text-2xl font-semibold mb-4 text-[var(--primary-color)]">
+                {service.title}
+              </h3>
+              <p className="text-sm md:text-base text-gray-300">
+                {service.description}
+              </p>
             </div>
-            <h3 className="text-xl md:text-2xl font-semibold mb-4 text-[var(--primary-color)]">
-              {service.title}
-            </h3>
-            <p className="text-sm md:text-base text-gray-300">
-              {service.description}
-            </p>
-          </div>
+          </AnimatedSection>
         ))}
       </div>
     </section>

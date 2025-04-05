@@ -1,3 +1,6 @@
+import React from 'react';
+import AnimatedSection from './AnimatedSection'; // Ensure correct import path
+
 interface Project {
   title: string;
   description: string;
@@ -41,24 +44,32 @@ const projects: Project[] = [
 const Projects = () => {
   return (
     <section id="projects" className="projects-section py-16 md:py-20 px-4 md:px-[10%]">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center md:text-left">Projects</h2>
+      <AnimatedSection>
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">
+          Projects
+        </h2>
+      </AnimatedSection>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {projects.map((project, index) => (
-          <div 
-            key={index} 
-            className="bg-[#1a1a1a] rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-          >
-            <h3 className="text-xl md:text-2xl font-bold mb-4 text-primary">{project.title}</h3>
-            <p className="text-sm md:text-base mb-6 text-gray-300">{project.description}</p>
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-6 py-2 bg-primary text-secondary font-semibold rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
-            >
-              {project.linkText}
-            </a>
-          </div>
+          <AnimatedSection key={index}>
+            <div className="bg-[#1a1a1a] rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 text-primary">
+                {project.title}
+              </h3>
+              <p className="text-sm md:text-base mb-6 text-gray-300">
+                {project.description}
+              </p>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-2 bg-primary text-secondary font-semibold rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+              >
+                {project.linkText}
+              </a>
+            </div>
+          </AnimatedSection>
         ))}
       </div>
     </section>
@@ -66,3 +77,4 @@ const Projects = () => {
 };
 
 export default Projects;
+  
