@@ -27,7 +27,7 @@ const Navbar = () => {
             <img src={logo} alt="Logo" className="h-12 w-auto" />
             <span
               className="text-3xl  text-[#E9552E]"
-              style={{ fontFamily: "Rubik Iso" }}
+              style={{ fontFamily: "Trade Winds" }}
             >
               TheBMPatil
             </span>
