@@ -25,7 +25,10 @@ const Navbar = () => {
             className="flex items-center space-x-2 hover:scale-105 transition-transform"
           >
             <img src={logo} alt="Logo" className="h-12 w-auto" />
-            <span className="text-2xl font-bold text-[#E9552E]">
+            <span
+              className="text-3xl  text-[#E9552E]"
+              style={{ fontFamily: "Rubik Iso" }}
+            >
               TheBMPatil
             </span>
           </a>
@@ -36,7 +39,8 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.path}
-                className="hover:text-[#E9552E] transition-colors duration-200 hover:scale-105 transform"
+                className="hover:text-[#E9552E] font-bold transition-colors duration-200 hover:scale-105 transform"
+                style={{ fontFamily: "Offside", fontSize: "1rem" }}
               >
                 {item.name}
               </a>
@@ -67,7 +71,8 @@ const Navbar = () => {
                   <a
                     key={item.name}
                     href={item.path}
-                    className="text-[#1B1B1B] hover:text-[#E9552E] transition-colors duration-200"
+                    className="text-[#1B1B1B] font-bold hover:text-[#E9552E] transition-colors duration-200"
+                    style={{ fontFamily: "Offside", fontSize: "1.1rem" }}
                     onClick={() => setIsOpen(false)} // Close on click
                   >
                     {item.name}
