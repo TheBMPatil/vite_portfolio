@@ -22,7 +22,11 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="skills-section py-16 md:py-20 px-4 md:px-[10%]">
+    <section id="skills" 
+    // className="skills-section py-16 md:py-20 px-4 md:px-[10%]"
+    className="skills-section scroll-mt-[280px] md:scroll-mt-0 py-16 md:py-20 px-4 md:px-[10%]"
+ 
+    >
       <AnimatedSection>
       <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">Skills</h2>
       </AnimatedSection>

@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -7,21 +8,24 @@ import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+
 function App() {
   return (
-    <div className="min-h-screen bg-[var(--background-color)] text-[var(--text-color)]">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Services />
-        <Testimonials />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-[var(--background-color)] text-[var(--text-color)]">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Services />
+          <Testimonials />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

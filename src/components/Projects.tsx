@@ -1,5 +1,5 @@
-import React from 'react';
-import AnimatedSection from './AnimatedSection'; // Ensure correct import path
+import React from "react";
+import AnimatedSection from "./AnimatedSection"; // Ensure correct import path
 
 interface Project {
   title: string;
@@ -11,39 +11,48 @@ interface Project {
 const projects: Project[] = [
   {
     title: "Vidyank (Freelance Project)",
-    description: "An online platform empowering students to prepare for competitive exams like JEE, NEET, and MHT-CET with mock tests, performance analysis, and expert guidance.",
+    description:
+      "An online platform empowering students to prepare for competitive exams like JEE, NEET, and MHT-CET with mock tests, performance analysis, and expert guidance.",
     link: "https://vidyank.com/",
-    linkText: "Visit Vidyank"
+    linkText: "Visit Vidyank",
   },
   {
     title: "CareerQuest (Personal Project)",
-    description: "An advanced job portal offering job listings, company profiles, and user profiles with robust search capabilities.",
+    description:
+      "An advanced job portal offering job listings, company profiles, and user profiles with robust search capabilities.",
     link: "https://github.com/TheBMPatil/CareerQuest",
-    linkText: "View on GitHub"
+    linkText: "View on GitHub",
   },
   {
     title: "Sinhgad UniGuide (College Project)",
-    description: "An Android app (React Native, Firebase, REST API) enhancing student engagement by streamlining access to essential campus services and optimizing the college experience.",
+    description:
+      "An Android app (React Native, Firebase, REST API) enhancing student engagement by streamlining access to essential campus services and optimizing the college experience.",
     link: "https://github.com/TheBMPatil2/Sinhgad-uniguide",
-    linkText: "View on GitHub"
+    linkText: "View on GitHub",
   },
   {
     title: "COVID Vaccination Center Locator (College Project)",
-    description: "An Android app (Kotlin, Volley) enabling real-time discovery of vaccination centers based on user PIN, improving public access to critical healthcare information.",
+    description:
+      "An Android app (Kotlin, Volley) enabling real-time discovery of vaccination centers based on user PIN, improving public access to critical healthcare information.",
     link: "https://github.com/TheBMPatil/covid_Vaccination_by_pin",
-    linkText: "View on GitHub"
+    linkText: "View on GitHub",
   },
   {
     title: "News App (Android) (Personal Project)",
-    description: "An Android news application built with Kotlin and Jetpack Compose, offering user interest-based news curation.",
+    description:
+      "An Android news application built with Kotlin and Jetpack Compose, offering user interest-based news curation.",
     link: "https://github.com/TheBMPatil/News_Application_Android_Kotlin",
-    linkText: "View on GitHub"
-  }
+    linkText: "View on GitHub",
+  },
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="projects-section py-16 md:py-20 px-4 md:px-[10%]">
+    <section
+      id="projects"
+      //  className="projects-section py-16 md:py-20 px-4 md:px-[10%]"
+      className="projects-section scroll-mt-[280px] md:scroll-mt-0 py-16 md:py-20 px-4 md:px-[10%]"
+    >
       <AnimatedSection>
         <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">
           Projects
@@ -77,4 +86,3 @@ const Projects = () => {
 };
 
 export default Projects;
-  

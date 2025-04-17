@@ -1,63 +1,82 @@
-import { Menu } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import logo from "../images/logo.png";
 
 const Navbar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
-
-  const closeSidebar = (e: MouseEvent) => {
-    const target = e.target as HTMLElement;
-    if (!target.closest('#sidebar') && !target.closest('#menuToggle')) {
-      setIsSidebarOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('click', closeSidebar);
-    return () => document.removeEventListener('click', closeSidebar);
-  }, []);
+  const navItems = [
+    { name: "About", path: "#about" },
+    { name: "Skills", path: "#skills" },
+    { name: "Projects", path: "#projects" },
+    { name: "Services", path: "#services" },
+    { name: "Testimonials", path: "#testimonials" },
+    { name: "Contact", path: "#contact" },
+  ];
 
   return (
-    <header className="navbar fixed top-0 left-0 w-full flex justify-between items-center p-4 z-50">
-      <div className="logo text-2xl font-bold text-[var(--text-color)]">BM Patil</div>
+    <header className="sticky top-0 z-50 bg-[#F5E6D3] shadow-md">
+      <div className="max-w-7xl mx-auto px-4 py-3">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <a
+            href="#"
+            className="flex items-center space-x-2 hover:scale-105 transition-transform"
+          >
+            <img src={logo} alt="Logo" className="h-12 w-auto" />
+            <span className="text-2xl font-bold text-[#E9552E]">
+              TheBMPatil
+            </span>
+          </a>
 
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex space-x-6 text-[#1B1B1B] font-medium">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.path}
+                className="hover:text-[#E9552E] transition-colors duration-200 hover:scale-105 transform"
+              >
+                {item.name}
+              </a>
+            ))}
+          </nav>
 
-      {/* Hamburger menu visible on small screens */}
-      <button
-        className="menu-toggle md:hidden relative text-2xl bg-transparent border-none cursor-pointer text-white z-[1001]"
-        id="menuToggle"
-        aria-label="Toggle Menu"
-        onClick={toggleSidebar}
-      >
-        <Menu size={28} />
-      </button>
+          {/* Mobile Toggle Button */}
+          <button
+            className="md:hidden text-[#1B1B1B] hover:text-[#E9552E] transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle Menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
-      {/* Horizontal nav links - hidden on small screens */}
-      <nav className="nav-links hidden md:flex gap-6">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#services">Services</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      {/* Sidebar menu - shown on mobile when toggled */}
-      <div
-        id="sidebar"
-        className={`fixed top-0 right-0 h-full w-64 p-6 transform transition-transform duration-300 z-[1000] ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
-          } md:hidden`}
-      >
-        <ul className="flex flex-col gap-4 text-lg text-[var(--text-color)]">
-
-          <li><a href="#about" onClick={() => setIsSidebarOpen(false)}>About</a></li>
-          <li><a href="#skills" onClick={() => setIsSidebarOpen(false)}>Skills</a></li>
-          <li><a href="#projects" onClick={() => setIsSidebarOpen(false)}>Projects</a></li>
-          <li><a href="#services" onClick={() => setIsSidebarOpen(false)}>Services</a></li>
-          <li><a href="#testimonials" onClick={() => setIsSidebarOpen(false)}>Testimonials</a></li>
-          <li><a href="#contact" onClick={() => setIsSidebarOpen(false)}>Contact</a></li>
-        </ul>
+        {/* Mobile Nav */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden mt-4"
+            >
+              <div className="flex flex-col space-y-4 pb-4">
+                {navItems.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.path}
+                    className="text-[#1B1B1B] hover:text-[#E9552E] transition-colors duration-200"
+                    onClick={() => setIsOpen(false)} // Close on click
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
